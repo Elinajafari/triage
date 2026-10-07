@@ -1,0 +1,14 @@
+{
+  "note": "The second round: two new wallets on the already deployed contract. A new owner opens a desk and answers its own category; a new member files one complaint. Read by scripts/seed-activity.mjs.",
+  "desk": {
+    "name": "Parkside Allotments, members' complaints",
+    "categories": [
+      "Shared tools that are broken or missing from the tool shed",
+      "Water supply to the plots: taps, hoses or the storage tank"
+    ],
+    "windows": [3600, 3600]
+  },
+  "complaint": "The tap by plot 14 has been dripping for days and the ground around it is now flooded, so nobody can reach the hose.",
+  "answer": "Thanks. A new washer goes on the plot 14 tap on Saturday morning, and the tank valve will be checked at the same time.",
+  "expected_ruling": "1"
+}

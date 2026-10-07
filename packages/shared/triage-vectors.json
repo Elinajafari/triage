@@ -1,0 +1,395 @@
+{
+  "clean_text": [
+    {
+      "raw": "  the radiator\tis \n cold ",
+      "clean": "the radiator is cold"
+    },
+    {
+      "raw": "bell\u0007x",
+      "clean": "bell x"
+    },
+    {
+      "raw": "café   ok",
+      "clean": "café ok"
+    },
+    {
+      "raw": "ab",
+      "clean": "a b"
+    },
+    {
+      "raw": "",
+      "clean": ""
+    },
+    {
+      "raw": "\u0001\u0002",
+      "clean": ""
+    }
+  ],
+  "split_list": [
+    {
+      "text": " repairs \n| |noise ",
+      "items": [
+        "repairs",
+        "",
+        "noise"
+      ]
+    },
+    {
+      "text": "one",
+      "items": [
+        "one"
+      ]
+    },
+    {
+      "text": "a||b",
+      "items": [
+        "a",
+        "",
+        "b"
+      ]
+    },
+    {
+      "text": "|",
+      "items": [
+        "",
+        ""
+      ]
+    }
+  ],
+  "parse_windows": [
+    {
+      "text": "300|600",
+      "windows": [
+        300,
+        600
+      ]
+    },
+    {
+      "text": " 60 | 7776000 ",
+      "windows": [
+        60,
+        7776000
+      ]
+    },
+    {
+      "text": "59",
+      "windows": null
+    },
+    {
+      "text": "7776001",
+      "windows": null
+    },
+    {
+      "text": "5m",
+      "windows": null
+    },
+    {
+      "text": "-60",
+      "windows": null
+    },
+    {
+      "text": "300||600",
+      "windows": null
+    },
+    {
+      "text": "",
+      "windows": null
+    },
+    {
+      "text": "1e3",
+      "windows": null
+    },
+    {
+      "text": "3600.5",
+      "windows": null
+    },
+    {
+      "text": "1234567890",
+      "windows": null
+    }
+  ],
+  "desk_refusal": [
+    {
+      "categories": "Repairs inside a flat|Noise from other residents",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "windows": "300|600",
+      "refusal": ""
+    },
+    {
+      "categories": "",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "windows": "300",
+      "refusal": "[EXPECTED] a desk needs at least one category"
+    },
+    {
+      "categories": "category number 0 here|category number 1 here|category number 2 here|category number 3 here|category number 4 here|category number 5 here|category number 6 here",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "windows": "300|300|300|300|300|300|300",
+      "refusal": "[EXPECTED] a desk lists at most 6 categories"
+    },
+    {
+      "categories": "short",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "windows": "300",
+      "refusal": "[EXPECTED] a category is 8 to 160 characters"
+    },
+    {
+      "categories": "Repairs inside a flat|REPAIRS INSIDE A FLAT",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "windows": "300|300",
+      "refusal": "[EXPECTED] two categories with the same wording cannot be told apart"
+    },
+    {
+      "categories": "Repairs inside a flat|Noise from other residents",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "windows": "300|300",
+      "refusal": "[EXPECTED] give one responder address per category, pipe joined"
+    },
+    {
+      "categories": "Repairs inside a flat|Noise from other residents",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0x12",
+      "windows": "300|300",
+      "refusal": "[EXPECTED] give one responder address per category, pipe joined"
+    },
+    {
+      "categories": "Repairs inside a flat|Noise from other residents",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "windows": "300",
+      "refusal": "[EXPECTED] give one response window per category, pipe joined, each 60 to 7776000 seconds"
+    },
+    {
+      "categories": "Repairs inside a flat|Noise from other residents",
+      "responders": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "windows": "300|59",
+      "refusal": "[EXPECTED] give one response window per category, pipe joined, each 60 to 7776000 seconds"
+    }
+  ],
+  "normalise_choice": [
+    {
+      "raw": "0",
+      "n": 3,
+      "choice": "0"
+    },
+    {
+      "raw": "2",
+      "n": 3,
+      "choice": "2"
+    },
+    {
+      "raw": " [1] ",
+      "n": 3,
+      "choice": "1"
+    },
+    {
+      "raw": "#1",
+      "n": 3,
+      "choice": "1"
+    },
+    {
+      "raw": "(2)",
+      "n": 3,
+      "choice": "2"
+    },
+    {
+      "raw": "NONE",
+      "n": 3,
+      "choice": "none"
+    },
+    {
+      "raw": " none ",
+      "n": 3,
+      "choice": "none"
+    },
+    {
+      "raw": "3",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "-1",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "repairs",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "1 or 2",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "007",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "1.0",
+      "n": 3,
+      "choice": ""
+    },
+    {
+      "raw": "<a number from the categories, or none>",
+      "n": 3,
+      "choice": ""
+    }
+  ],
+  "unreverse": [
+    {
+      "choice": "0",
+      "n": 3,
+      "back": "2"
+    },
+    {
+      "choice": "1",
+      "n": 3,
+      "back": "1"
+    },
+    {
+      "choice": "2",
+      "n": 3,
+      "back": "0"
+    },
+    {
+      "choice": "none",
+      "n": 3,
+      "back": "none"
+    },
+    {
+      "choice": "",
+      "n": 3,
+      "back": ""
+    }
+  ],
+  "fold": [
+    {
+      "forward": "0",
+      "reverse": "0",
+      "folded": "0"
+    },
+    {
+      "forward": "0",
+      "reverse": "1",
+      "folded": "none"
+    },
+    {
+      "forward": "0",
+      "reverse": "none",
+      "folded": "none"
+    },
+    {
+      "forward": "0",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "1",
+      "reverse": "0",
+      "folded": "none"
+    },
+    {
+      "forward": "1",
+      "reverse": "1",
+      "folded": "1"
+    },
+    {
+      "forward": "1",
+      "reverse": "none",
+      "folded": "none"
+    },
+    {
+      "forward": "1",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "none",
+      "reverse": "0",
+      "folded": "none"
+    },
+    {
+      "forward": "none",
+      "reverse": "1",
+      "folded": "none"
+    },
+    {
+      "forward": "none",
+      "reverse": "none",
+      "folded": "none"
+    },
+    {
+      "forward": "none",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "0",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "1",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "none",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "",
+      "folded": ""
+    }
+  ],
+  "ruling_sound": [
+    {
+      "ruling": "none",
+      "n": 3,
+      "sound": true
+    },
+    {
+      "ruling": "0",
+      "n": 3,
+      "sound": true
+    },
+    {
+      "ruling": "2",
+      "n": 3,
+      "sound": true
+    },
+    {
+      "ruling": "3",
+      "n": 3,
+      "sound": false
+    },
+    {
+      "ruling": "",
+      "n": 3,
+      "sound": false
+    },
+    {
+      "ruling": "x",
+      "n": 3,
+      "sound": false
+    },
+    {
+      "ruling": "-1",
+      "n": 3,
+      "sound": false
+    },
+    {
+      "ruling": "0.0",
+      "n": 3,
+      "sound": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@triage/contracts",
+  "displayName": "Triage",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Elina (https://github.com/Elinajafari)",
+  "scripts": {
+    "test": "python -m pytest tests -q -p no:cacheprovider",
+    "mutate": "python scripts/mutate.py",
+    "measure": "python scripts/measure.py --write",
+    "lift": "python scripts/lift.py",
+    "lint": "node scripts/lint.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "seed": "node scripts/seed.mjs",
+    "e2e": "node scripts/e2e.mjs",
+    "verify": "node scripts/verify.mjs",
+    "evidence": "node scripts/evidence.mjs"
+  },
+  "dependencies": {
+    "genlayer-js": "1.1.8",
+    "viem": "2.56.8"
+  }
+}

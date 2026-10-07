@@ -1,0 +1,236 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0xAB91fCf0Eb32291a681daBd938e26FbCc248187B",
+  "explorer": "https://explorer-studio.genlayer.com/address/0xAB91fCf0Eb32291a681daBd938e26FbCc248187B",
+  "source_sha256": "cf20097482a473c3cd565be32d52d3f6a0fad848428dff0a9a069a0510f7e0d1",
+  "constructor": {},
+  "deployer": "0x27d81e585cfFBe5Ee898271408629FaC7340DC13",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0x27d81e585cfFBe5Ee898271408629FaC7340DC13",
+      "tx": "0xa33306aa025e4b8d0a29cc271224c2f39a45bf24e36ba2be36103fd1e5a55779",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": "",
+      "address": "0xAB91fCf0Eb32291a681daBd938e26FbCc248187B"
+    },
+    {
+      "step": "desk 0 opened: three categories, five minutes each",
+      "method": "open",
+      "from": "0x76B29728Db501CFE2A98C1F1a3eb67Ed7ab0A162",
+      "tx": "0x557e834340988fabb041c9a596760899d5e5468f9702b66db02f547175a5bd5c",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "complaint 0: a cold radiator",
+      "method": "file",
+      "from": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "tx": "0xfe1574a5fcd737ed50163928a3f05f58313d31ae9658b3f931ab9003a85aebc9",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "complaint 1: music after midnight",
+      "method": "file",
+      "from": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "tx": "0xeae200570d36622d2fbe542b8866ee887c6c8b02218d9c45dd5c28a2b62ffe4b",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the same complaint again",
+      "method": "file",
+      "from": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "tx": "0xf7dc8750b17d455a9b9b132cf010f2d5471c8e844d5d4634b496331da1d8c6a1",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this complaint was already routed as complaint 0; that answer stands"
+    },
+    {
+      "step": "complaint 2: a sponsorship request",
+      "method": "file",
+      "from": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "tx": "0x112a696996ee5048b6c4ccce1e88656587cc3d320589680a14e5ffda05eb6234",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a fourth complaint",
+      "method": "file",
+      "from": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "tx": "0x804e45114c0ed52c30d9e55321304f54a6a6f60a6c97dd0185d7575ca02b8188",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] a complainant files at most 3 complaints on one desk"
+    },
+    {
+      "step": "a stranger answers complaint 0",
+      "method": "respond",
+      "from": "0x71D76dF00e4876E6BE44be750543b774766D1aCe",
+      "tx": "0x4b31a4ccdad8e97944b3ab9ca1adf8e3087488665adae081e0db4cc6950ce08b",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] only the responder for category 0 may answer it"
+    },
+    {
+      "step": "repairs answers the out-of-scope request",
+      "method": "respond",
+      "from": "0xe42056D47fcD756dA54e291A4F50Eb9fC4BA40E5",
+      "tx": "0x0de9c345522c7df2c79a81310a982c2496da578e781cc4dbdc0b18441f618587",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this complaint is out_of_scope; only an assigned one is answered"
+    },
+    {
+      "step": "repairs answers complaint 0 in time",
+      "method": "respond",
+      "from": "0xe42056D47fcD756dA54e291A4F50Eb9fC4BA40E5",
+      "tx": "0xa0cb87b41d1fb747d197ed7b813f0694b348eb886f798671d93c24cd5ca06f1e",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a breach recorded before the deadline",
+      "method": "breach",
+      "from": "0x71D76dF00e4876E6BE44be750543b774766D1aCe",
+      "tx": "0xa34b2298bddcb8fb7c5bc2cd547353cb8bf5f9fe0648bb6ebe5632d0e91eae1f",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the response is due by 2026-10-07T22:21:49Z"
+    },
+    {
+      "step": "neighbours answers after the deadline",
+      "method": "respond",
+      "from": "0xa7b8344052AE01066C63c1A6a788a2dc62a1C67e",
+      "tx": "0xd99b2cfa261a940646ce350a7d3b26dd2da90c508e6b0714570b4b8492ce53b1",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the response was due by 2026-10-07T22:21:49Z; anyone may now record the breach"
+    },
+    {
+      "step": "complaint 1 breached",
+      "method": "breach",
+      "from": "0x71D76dF00e4876E6BE44be750543b774766D1aCe",
+      "tx": "0x5e38bb2744d550f031baa11f62374f2fcdf5da8ea6a790ec277d2b3f8f8c4bbd",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a breach of an answered complaint",
+      "method": "breach",
+      "from": "0x71D76dF00e4876E6BE44be750543b774766D1aCe",
+      "tx": "0x964555fefd7407276480479e846199d10571102f5de25a770a4880058a5578b3",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this complaint is answered; only an assigned one can be breached"
+    }
+  ],
+  "accounts": {
+    "deployer": "0x27d81e585cfFBe5Ee898271408629FaC7340DC13",
+    "owner": "0x76B29728Db501CFE2A98C1F1a3eb67Ed7ab0A162",
+    "resident": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+    "repairs": "0xe42056D47fcD756dA54e291A4F50Eb9fC4BA40E5",
+    "neighbours": "0xa7b8344052AE01066C63c1A6a788a2dc62a1C67e",
+    "billing": "0x5b6ec50450b96521A0641F58E0669B6EBBB47605",
+    "stranger": "0x71D76dF00e4876E6BE44be750543b774766D1aCe"
+  },
+  "desk": {
+    "categories": 3,
+    "complaints": 3,
+    "name": "Riverside Housing Co-op, residents' complaints",
+    "opened_at": "2026-10-07T22:15:56Z",
+    "owner": "0x76B29728Db501CFE2A98C1F1a3eb67Ed7ab0A162"
+  },
+  "categories": [
+    {
+      "answered": 1,
+      "assigned": 1,
+      "breached": 0,
+      "desk": 0,
+      "index": 0,
+      "responder": "0xe42056D47fcD756dA54e291A4F50Eb9fC4BA40E5",
+      "text": "Repairs inside a flat: heating, hot water, plumbing, electrics, windows or doors",
+      "window": 300
+    },
+    {
+      "answered": 0,
+      "assigned": 1,
+      "breached": 1,
+      "desk": 0,
+      "index": 1,
+      "responder": "0xa7b8344052AE01066C63c1A6a788a2dc62a1C67e",
+      "text": "Noise or behaviour of other residents or their visitors",
+      "window": 300
+    },
+    {
+      "answered": 0,
+      "assigned": 0,
+      "breached": 0,
+      "desk": 0,
+      "index": 2,
+      "responder": "0x5b6ec50450b96521A0641F58E0669B6EBBB47605",
+      "text": "Rent, service charges or billing mistakes",
+      "window": 300
+    }
+  ],
+  "complaints": [
+    {
+      "answer": "An engineer will visit flat 4B on Thursday morning to repressurise the boiler and bleed the bedroom radiator.",
+      "answered_at": "2026-10-07T22:18:28Z",
+      "at": "2026-10-07T22:16:08Z",
+      "breached_by": "",
+      "by": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "category": "0",
+      "desk": 0,
+      "digest": "741ee0ec2017e1e0d046855b7e7db356d7ea9d96d0e7a5d4cbc018f227570d0e",
+      "due": "2026-10-07T22:21:08Z",
+      "id": 0,
+      "reason_is_leader_supplied": true,
+      "status": "answered",
+      "text": "The radiator in my bedroom has been stone cold for a week and the boiler pressure keeps dropping below one bar, flat 4B.",
+      "why": "Radiator is cold and boiler pressure low, indicating a heating repair problem."
+    },
+    {
+      "answer": "",
+      "answered_at": "",
+      "at": "2026-10-07T22:16:49Z",
+      "breached_by": "0x71D76dF00e4876E6BE44be750543b774766D1aCe",
+      "by": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "category": "1",
+      "desk": 0,
+      "digest": "b5165ae4e2e36f35290e18ccfa30a0fff86fdcfa9f13fe092f258e3be59e102b",
+      "due": "2026-10-07T22:21:49Z",
+      "id": 1,
+      "reason_is_leader_supplied": true,
+      "status": "breached",
+      "text": "My upstairs neighbour in flat 5B plays loud music past one in the morning every Friday and Saturday, and it shakes my ceiling.",
+      "why": "The complaint describes a problem regarding the noise and behavior of another resident."
+    },
+    {
+      "answer": "",
+      "answered_at": "",
+      "at": "2026-10-07T22:17:30Z",
+      "breached_by": "",
+      "by": "0xf989900C15c0a29AF25E016F6aEc6357062BAcbB",
+      "category": "none",
+      "desk": 0,
+      "digest": "6acc7b13399e476fa232811b3cbf10841f57118f64838be84a7f80e027a1a116",
+      "due": "",
+      "id": 2,
+      "reason_is_leader_supplied": true,
+      "status": "out_of_scope",
+      "text": "Could the co-op sponsor my son's under-twelves football team this season? They need new kit and a minibus for away games.",
+      "why": "This is a sponsorship request for a football team, not a complaint about housing repairs, neighbour behaviour, or billing."
+    }
+  ]
+}

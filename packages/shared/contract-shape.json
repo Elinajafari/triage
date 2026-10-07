@@ -1,0 +1,136 @@
+{
+  "contract": "packages/contracts/triage.py",
+  "note": "Generated from the contract source and deployments/studionet.json; packages/contracts/tests/test_shape.py fails if either drifts from this file.",
+  "constructor": {},
+  "writes": {
+    "open": {
+      "params": {
+        "name": "str",
+        "categories": "str",
+        "responders": "str",
+        "windows": "str"
+      }
+    },
+    "file": {
+      "params": {
+        "desk_id": "u256",
+        "text": "str"
+      }
+    },
+    "respond": {
+      "params": {
+        "desk_id": "u256",
+        "complaint_id": "u256",
+        "text": "str"
+      }
+    },
+    "breach": {
+      "params": {
+        "desk_id": "u256",
+        "complaint_id": "u256"
+      }
+    }
+  },
+  "views": {
+    "count": {
+      "params": {},
+      "returns": "u256"
+    },
+    "desk": {
+      "params": {
+        "desk_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "categories",
+        "complaints",
+        "name",
+        "opened_at",
+        "owner"
+      ],
+      "sampled_from_record": [
+        "desk"
+      ]
+    },
+    "categories_of": {
+      "params": {
+        "desk_id": "u256"
+      },
+      "returns": "dict",
+      "row_fields": [
+        "answered",
+        "assigned",
+        "breached",
+        "desk",
+        "index",
+        "responder",
+        "text",
+        "window"
+      ],
+      "sampled_from_record": [
+        "categories",
+        0
+      ]
+    },
+    "complaints_of": {
+      "params": {
+        "desk_id": "u256"
+      },
+      "returns": "dict",
+      "row_fields": [
+        "answer",
+        "answered_at",
+        "at",
+        "breached_by",
+        "by",
+        "category",
+        "desk",
+        "digest",
+        "due",
+        "id",
+        "reason_is_leader_supplied",
+        "status",
+        "text",
+        "why"
+      ],
+      "sampled_from_record": [
+        "complaints",
+        0
+      ]
+    },
+    "complaint": {
+      "params": {
+        "desk_id": "u256",
+        "complaint_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "answer",
+        "answered_at",
+        "at",
+        "breached_by",
+        "by",
+        "category",
+        "desk",
+        "digest",
+        "due",
+        "id",
+        "reason_is_leader_supplied",
+        "status",
+        "text",
+        "why"
+      ],
+      "sampled_from_record": [
+        "complaints",
+        1
+      ]
+    },
+    "status": {
+      "params": {
+        "desk_id": "u256",
+        "complaint_id": "u256"
+      },
+      "returns": "str"
+    }
+  }
+}

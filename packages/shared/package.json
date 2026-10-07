@@ -1,0 +1,20 @@
+{
+  "name": "@triage/shared",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.9"
+  },
+  "license": "MIT",
+  "author": "Elina (https://github.com/Elinajafari)",
+  "description": "Types, parsers and a tested port of the Triage contract's deterministic rules, for any client that reads the contract."
+}

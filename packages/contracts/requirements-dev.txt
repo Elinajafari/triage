@@ -1,0 +1,5 @@
+# The contract tests need only this:
+pytest>=8.0
+
+# `pnpm verify` lints the source it reads back off chain.
+genvm-linter

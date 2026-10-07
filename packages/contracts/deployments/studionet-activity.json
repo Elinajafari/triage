@@ -1,0 +1,97 @@
+{
+  "network": "studionet",
+  "contract": "0xAB91fCf0Eb32291a681daBd938e26FbCc248187B",
+  "accounts": {
+    "owner": "0x5138e4105c12287220a00D7AD9726C75316e49C2",
+    "member": "0x7ABC26b251b64CA2180C69B108aeDD2B64bF0c93"
+  },
+  "steps": [
+    {
+      "step": "desk 1 opened by a new owner, who answers both categories",
+      "method": "open",
+      "from": "0x5138e4105c12287220a00D7AD9726C75316e49C2",
+      "tx": "0xc91f139f4feda2889003371287fa3b890e1788a744c5760de55d6f95e63d5b22",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a new member files (expected category 1)",
+      "method": "file",
+      "from": "0x7ABC26b251b64CA2180C69B108aeDD2B64bF0c93",
+      "tx": "0xd3e53560a5d5388a28f17ce6eaa396ad4768e777d970eddecd113dd0382c0155",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the member tries to answer its own complaint",
+      "method": "respond",
+      "from": "0x7ABC26b251b64CA2180C69B108aeDD2B64bF0c93",
+      "tx": "0x1b2e1d647de0711abe06a16ee55c0a158654337f849e846c6f14be0346e724dc",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] only the responder for category 1 may answer it"
+    },
+    {
+      "step": "the owner answers in time",
+      "method": "respond",
+      "from": "0x5138e4105c12287220a00D7AD9726C75316e49C2",
+      "tx": "0x1473dea568b854ebacf9cf7584581300457436656339c47f2f321b63480dd38a",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "desks": {
+    "1": {
+      "desk": {
+        "categories": 2,
+        "complaints": 1,
+        "name": "Parkside Allotments, members' complaints",
+        "opened_at": "2026-10-07T22:23:23Z",
+        "owner": "0x5138e4105c12287220a00D7AD9726C75316e49C2"
+      },
+      "categories": [
+        {
+          "answered": 0,
+          "assigned": 0,
+          "breached": 0,
+          "desk": 1,
+          "index": 0,
+          "responder": "0x5138e4105c12287220a00D7AD9726C75316e49C2",
+          "text": "Shared tools that are broken or missing from the tool shed",
+          "window": 3600
+        },
+        {
+          "answered": 1,
+          "assigned": 1,
+          "breached": 0,
+          "desk": 1,
+          "index": 1,
+          "responder": "0x5138e4105c12287220a00D7AD9726C75316e49C2",
+          "text": "Water supply to the plots: taps, hoses or the storage tank",
+          "window": 3600
+        }
+      ],
+      "complaints": [
+        {
+          "answer": "Thanks. A new washer goes on the plot 14 tap on Saturday morning, and the tank valve will be checked at the same time.",
+          "answered_at": "2026-10-07T22:24:09Z",
+          "at": "2026-10-07T22:23:34Z",
+          "breached_by": "",
+          "by": "0x7ABC26b251b64CA2180C69B108aeDD2B64bF0c93",
+          "category": "1",
+          "desk": 1,
+          "digest": "b847f379314fe6a967e952b08e7fe9d5e7f75e78b7acc1b329559ea80b0012cd",
+          "due": "2026-10-07T23:23:34Z",
+          "id": 3,
+          "reason_is_leader_supplied": true,
+          "status": "answered",
+          "text": "The tap by plot 14 has been dripping for days and the ground around it is now flooded, so nobody can reach the hose.",
+          "why": "The complaint is about a dripping tap and flooded ground blocking access to the hose — water supply infrastructure."
+        }
+      ]
+    }
+  }
+}

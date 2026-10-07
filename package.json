@@ -1,0 +1,34 @@
+{
+  "name": "triage",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Triage: a complaints desk where every complaint is routed by GenLayer validators and answered on a clock.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Elina (https://github.com/Elinajafari)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Elinajafari/triage"
+  },
+  "scripts": {
+    "test": "pnpm -r --sequential test",
+    "test:contract": "pnpm --filter @triage/contracts test",
+    "test:shared": "pnpm --filter @triage/shared test",
+    "typecheck": "pnpm --filter @triage/shared typecheck",
+    "mutate:contract": "pnpm --filter @triage/contracts mutate",
+    "measure:contract": "pnpm --filter @triage/contracts measure",
+    "lint:genvm": "node packages/contracts/scripts/lint.mjs",
+    "deploy:contract": "node packages/contracts/scripts/deploy.mjs",
+    "seed:contract": "node packages/contracts/scripts/seed.mjs",
+    "seed:activity": "node packages/contracts/scripts/seed-activity.mjs",
+    "e2e:contract": "node packages/contracts/scripts/e2e.mjs",
+    "verify:contract": "node packages/contracts/scripts/verify.mjs",
+    "evidence:contract": "node packages/contracts/scripts/evidence.mjs",
+    "evidence:activity": "node packages/contracts/scripts/evidence.mjs packages/contracts/deployments/studionet-activity.json EVIDENCE-ACTIVITY.md \"Triage, second round\"",
+    "demo:contract": "pnpm deploy:contract && pnpm seed:contract && pnpm e2e:contract && pnpm evidence:contract"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.18.2"
+}
